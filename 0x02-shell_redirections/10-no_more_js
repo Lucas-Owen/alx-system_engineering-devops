@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -file f -name "*.js" -print0 | rm
+find . -type f -name "*.js" -printf "%P " | rm
