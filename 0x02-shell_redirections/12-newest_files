@@ -1,0 +1,2 @@
+#!/bin/bash
+file . -file f -maxdepth=0 -print0 | ls -tx | head -n 10
