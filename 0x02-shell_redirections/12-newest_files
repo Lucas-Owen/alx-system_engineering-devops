@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -maxdepth 1 -type f -print | ls -tx | head -n 10
+ls -1 -t --file-type | grep -E [[:print:]]*[^*/=\>@\|]$
