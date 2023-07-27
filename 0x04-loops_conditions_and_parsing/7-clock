@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# This script is displays "Best School" 10 times
+# On the 9th iteration, Hi is also printed
+i=0
+while [ $i -le 10 ]
+do
+	echo "Hour: $i"
+	j=0
+	while [ $j -lt 60 ]
+	do
+		echo $j
+		(( ++j ))
+	done
+	(( ++i ))
+done
