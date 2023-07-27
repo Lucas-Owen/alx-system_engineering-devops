@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# This script parses apache log files and displays the ip address and http status
+
+file=apache-access.log
+
+while read -r access
+do
+    echo "$access" | cut -d ' ' -f 1,9
+done < "$file"
