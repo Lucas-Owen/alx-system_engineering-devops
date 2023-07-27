@@ -3,7 +3,4 @@
 
 file=apache-access.log
 
-while read -r access
-do
-    echo "$access" | cut -d ' ' -f 1,9
-done < "$file"
+awk '{print $1,$9}' $file
