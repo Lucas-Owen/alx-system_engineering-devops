@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# This script tells a story from /etc/passwd
+
+file=/etc/passwd
+
+while read -r usr
+do
+    USERNAME=$(echo "$usr" | cut -d ':' -f 1)
+    PASSWORD=$(echo "$usr" | cut -d ':' -f 2)
+    USER_ID=$(echo "$usr" | cut -d ':' -f 3)
+    GROUP_ID=$(echo "$usr" | cut -d ':' -f 4)
+    USER_ID_INFO=$(echo "$usr" | cut -d ':' -f 5)
+    HOME_DIRECTORY=$(echo "$usr" | cut -d ':' -f 6)
+    COMMAND_SHELL=$(echo "$usr" | cut -d ':' -f 7)
+    echo "The user $USERNAME is part of the $GROUP_ID gang, lives in $HOME_DIRECTORY and rides $COMMAND_SHELL. $USER_ID's place is protected by the passcode $PASSWORD, more info about the user here: $USER_ID_INFO"
+done < "$file"
