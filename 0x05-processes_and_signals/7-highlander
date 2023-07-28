@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# This script displays to infinity and beyond indefinitely
+# Ignores the SIGTERM
+
+trap "echo 'I am invincible!!!'" SIGTERM
+
+while true
+do
+    echo "To infinity and beyond"
+    sleep 2
+done
