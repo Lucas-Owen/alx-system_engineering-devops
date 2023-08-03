@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# This script changes the localhost to 127.0.0.2 and facebook.com to 8.8.8.8
+tempFile="hosts.temp"
+echo -e "127.0.0.2\tlocalhost\n8.8.8.8\t\tfacebook.com" > "$tempFile"
+cat /etc/hosts >> "$tempFile"
+cp "$tempFile" /etc/hosts
+rm -f "$tempFile"
