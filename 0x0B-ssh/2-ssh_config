@@ -1,0 +1,3 @@
+Host 52.86.34.186
+	IdentityFile ~/.ssh/school
+	KbdInteractiveAuthentication no
