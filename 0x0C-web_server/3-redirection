@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# This script configures an nginx server on a new server with a 301 redirect on path /redirect_me
 apt-get update
 apt-get -y install nginx
 ufw allow 'Nginx HTTP'

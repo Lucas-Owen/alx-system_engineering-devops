@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# This script configures a new nginx server on a new ubuntu server, adds a redirect and a default 404 error page
 apt-get update
 apt-get -y install nginx
 ufw allow 'Nginx HTTP'
