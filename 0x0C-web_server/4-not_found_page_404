@@ -3,6 +3,7 @@
 apt-get update
 apt-get -y install nginx
 ufw allow 'Nginx HTTP'
+ufw allow ssh
 echo y | ufw enable
 ufw reload
 echo "Ceci n'est pas une page" > /var/www/html/404.html
