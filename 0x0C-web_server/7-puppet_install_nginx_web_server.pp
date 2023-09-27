@@ -1,7 +1,7 @@
 # This manifest sets up a configuration for an ngix server on a linux machine
 package {'nginx':
   ensure => installed,
-  notify => Exec['setup redirect', 'setup 404']
+  notify => Exec['setup ufw', 'setup redirect', 'setup 404']
 }
 
 exec {'setup 404':
@@ -14,6 +14,11 @@ exec {'setup redirect':
   refreshonly => true
 }
 
+exec {'setup ufw':
+  command     => 'ufw allow \'Nginx HTTP\'; ufw allow ssh',
+  refreshonly => true
+}
+
 file {'/var/www/html/index.html':
   ensure  => file,
   content => "Hello World!\n",
@@ -22,4 +27,11 @@ file {'/var/www/html/index.html':
 file {'/var/www/html/404.html':
   ensure  => file,
   content => "Ceci n'est pas une page\n",
+}
+
+service {'ufw':
+  enable => true,
+}
+
+service {'nginx':
 }
