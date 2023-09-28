@@ -15,23 +15,22 @@ exec {'setup redirect':
 }
 
 exec {'setup ufw':
-  command     => 'ufw allow \'Nginx HTTP\'; ufw allow ssh',
+  command     => 'ufw allow \'Nginx HTTP\'',
   refreshonly => true
 }
 
 file {'/var/www/html/index.html':
   ensure  => file,
   content => "Hello World!\n",
+  notify  => Service['nginx']
 }
 
 file {'/var/www/html/404.html':
   ensure  => file,
   content => "Ceci n'est pas une page\n",
-}
-
-service {'ufw':
-  enable => true,
+  notify  => Service['nginx']
 }
 
 service {'nginx':
+  ensure => 'running',
 }
