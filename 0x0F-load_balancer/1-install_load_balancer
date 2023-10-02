@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Configures a new ubuntu server with haproxy load balancer
+apt-get install -y --no-install-recommends software-properties-common
+add-apt-repository -y ppa:vbernat/haproxy-2.8
+apt-get install -y haproxy=2.8.\*
+sed -i '9 a \\th1-case-adjust x-served-by X-Served-By\n' /etc/haproxy/haproxy.cfg
+sed -i '$a \\nfrontend myfrontend\n   mode http\n   bind *:80\n   default_backend web_servers\n   option h1-case-adjust-bogus-client\n\nbackend web_servers\n   mode http\n   balance roundrobin\n   server web1 100.26.170.70\n   server web2 100.26.255.3\n' /etc/haproxy/haproxy.cfg
+service haproxy restart
