@@ -3,7 +3,7 @@
 if (( $# == 2 )); then
     dig "$2.$1" | awk -v subdomain="$2" '/ANSWER SECTION/{getline; printf "The subdomain %s is a %s record and points to %s\n", subdomain, $4, $5}'
 else
-    for subdomain in "www" "web-01" "web-02"; do
+    for subdomain in "www" "lb-01" "web-01" "web-02"; do
         dig "$subdomain.$1" | awk -v subdomain="$subdomain" '/ANSWER SECTION/{getline; printf "The subdomain %s is a %s record and points to %s\n", subdomain, $4, $5}'
     done
 fi
