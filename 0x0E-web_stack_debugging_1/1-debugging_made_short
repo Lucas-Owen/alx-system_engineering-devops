@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# This also fixes nginx to listen on port 80
+sed -i -e 's/8080 /80 /' -e 's/ ipv6only=on//' /etc/nginx/sites-enabled/default 
+sudo service nginx restart
