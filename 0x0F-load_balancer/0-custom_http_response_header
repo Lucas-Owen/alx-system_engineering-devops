@@ -2,10 +2,6 @@
 # This script configures an nginx server on a new server with a 301 redirect on path /redirect_me
 apt-get update
 apt-get -y install nginx
-ufw allow 'Nginx HTTP'
-ufw allow ssh
-bash -c "echo y | ufw enable"
-ufw reload
 bash -c "echo 'Hello World!' > /var/www/html/index.html"
 bash -c "echo 'Ceci n\'est pas une page' > /var/www/html/404.html"
 sed -i '60 a \\tadd_header X-Served-By "\$hostname";\n' /etc/nginx/nginx.conf
