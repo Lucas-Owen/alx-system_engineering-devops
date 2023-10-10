@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 # Configures a new ubuntu server with haproxy load balancer
+apt-get update
+apt-get -y upgrade
 apt-get install -y --no-install-recommends software-properties-common
 add-apt-repository -y ppa:vbernat/haproxy-2.8
 apt-get install -y haproxy=2.8.\*
