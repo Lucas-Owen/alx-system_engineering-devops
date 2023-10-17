@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# This script fixes a bug on a particular server
+pkill -9 apache
+sed -i '21,22s/80/8080/' /etc/nginx/sites-available/default
+service nginx stop
+sudo su nginx service nginx start
