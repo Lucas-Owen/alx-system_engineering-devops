@@ -25,9 +25,9 @@ if __name__ == "__main__":
                     lines = []
                     for task in todos:
                         lines.append(
-                            '"{}", "{}", "{}", "{}"\n'.format(
+                            '"{}","{}","{}","{}"\n'.format(
                                 userId,
-                                employee['name'],
+                                employee['username'],
                                 task['completed'],
                                 task['title']
                             )
