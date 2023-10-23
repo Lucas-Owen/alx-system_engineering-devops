@@ -23,6 +23,7 @@ if __name__ == "__main__":
                         for task in todos:
                             del task['userId']
                             del task['id']
+                            task['task'] = task.pop('title')
                             task['username'] = employee['username']
                         entries[userId] = todos
                 json_file.write(json.dumps(entries))
