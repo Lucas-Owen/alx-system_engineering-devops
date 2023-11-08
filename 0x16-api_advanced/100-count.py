@@ -2,7 +2,7 @@
 """This module defines top_ten function"""
 
 
-from functools import cmp_to_key
+import functools
 import re
 import requests
 
@@ -49,7 +49,7 @@ def count_words(subreddit, word_list, after=None, counts=None):
                                after=json_resp['data']['after'],
                                counts=counts)
         results = [[word, counts[word]] for word in word_list]
-        for result in sorted(results, key=cmp_to_key(compare)):
+        for result in sorted(results, key=functools.cmp_to_key(compare)):
             print("{}: {}".format(result[0], result[1]))
         return
     except Exception as e:
