@@ -2,9 +2,9 @@
 """This module defines top_ten function"""
 
 
-import requests
-import re
 from functools import cmp_to_key
+import re
+import requests
 
 
 def compare(item1, item2):
