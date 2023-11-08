@@ -9,7 +9,7 @@ def top_ten(subreddit):
     """
     import requests
     headers = {
-        'user-agent': 'Chrome/118.0.0.0',
+        'user-agent': 'Mozilla/5.0 Chrome/118.0.0.0',
     }
     url = 'https://www.reddit.com/r/'+str(subreddit)+'/hot.json'
     try:
@@ -17,4 +17,4 @@ def top_ten(subreddit):
         for post in (response.json())['data']['children'][:10]:
             print(post['data']['title'])
     except Exception as e:
-        return
+        print("None")
