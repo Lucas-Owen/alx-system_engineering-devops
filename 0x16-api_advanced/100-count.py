@@ -48,9 +48,10 @@ def count_words(subreddit, word_list, after=None, counts=None):
                                word_list,
                                after=json_resp['data']['after'],
                                counts=counts)
-        results = [[word, counts[word]] for word in word_list]
+        results = [[word, count] for word, count in counts.items()]
         for result in sorted(results, key=functools.cmp_to_key(compare)):
-            print("{}: {}".format(result[0], result[1]))
+            count = word_list.count(result[0])
+            print("{}: {}".format(result[0], result[1] * count))
         return
     except Exception as e:
         return
